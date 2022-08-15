@@ -1,0 +1,24 @@
+
+div.bookShelf
+{
+    text-align: center;
+    display: grid;
+    grid-template-columns: repeat(5,200px);
+    gap: 20px;
+    margin: 30px;
+}
+
+div.book
+{
+    background-color: blanchedalmond;
+    border: 2px solid black;
+    padding: 10px;
+    box-shadow: 2px 2px black;
+}
+
+button
+{
+    width: 10em;
+    height: 3em;
+    margin: 10px;
+}
