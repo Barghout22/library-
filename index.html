@@ -8,28 +8,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Welcome to the library!</h1>
-
+    <div class="header">
+        <h1>Welcome to the library!</h1>
+        <button class="addNewBook" >add new book</button>
+    </div>
 <div class="bookShelf"></div>
-<button class="addNewBook" >new book</button>
+
 
 <div class="newBookForm" hidden>
-    <form action='' method='dialog' id="bookInfo" >
         <fieldset>
             <legend>please enter the information of the book </legend>
             <h1>fileds marked in * are required</h1>
             <div class="newBookGrid">
                 <div class="bookName">
                     <label for="book_name">book name*</label>
-                    <input type="text" name="book_name" id="book_name" required>
+                    <input type="text" name="book_name" id="book_name" value=" " required>
                 </div>
                 <div class="authorName">
                     <label for="author_name">author name*</label>
-                    <input type="text" name="author_name" id="author_name" required>
+                    <input type="text" name="author_name" id="author_name" value=" " required>
                 </div>
                 <div class="pageNumber">
                     <label for="page_number">page number*</label>
-                    <input type="tel" name="page_number" id="page_number" required>
+                    <input type="tel" name="page_number" id="page_number" value=" " required>
                 </div>
                 <div class="readStatus">
                     <fieldset>
@@ -43,8 +44,6 @@
                         </fieldset>
                         <button id="submittNewBook">add book</button>
             </div>
-    
-       </form>
 </div>
 
     <script src="lib.js"></script>

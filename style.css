@@ -1,4 +1,18 @@
 
+body
+{
+font: bold;
+font-family: monospace;
+
+}
+
+.header
+{
+display: flex;
+justify-content: space-between;
+margin: 20px;
+
+}
 div.bookShelf
 {
     text-align: center;
@@ -28,4 +42,15 @@ div.newBookGrid
     display: grid;
     grid-template-columns: repeat(2,300px);
     gap: 20px;
+}
+
+.read{
+    background-color: green;
+    color: white;
+}
+
+.notread
+{
+background-color: red;
+color: white;
 }

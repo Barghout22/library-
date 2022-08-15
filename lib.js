@@ -2,13 +2,15 @@ let myLibrary=[];
 const bookCollection=document.querySelector('.bookShelf');
 const form=document.querySelector('.newBookForm');
 let removeBooks='';
+let readStatus='';
+let placeholderObject={book:'',author:'',pages:'',readStatus:'not read'};
 
-const harry=new Book('harry potter','jk',265,'read');
+/*const harry=new Book('harry potter','jk',265,'read');
 const john=new Book('mikey','jojo',250,'read');
-const harr=new Book('alchemist','paolo',135,'unread');
+const harr=new Book('alchemist','paolo',135,'not read');
 const joh=new Book('lord of the rings','tolkein',150,'read');
 const hary=new Book('welcome to the jungle','gnr',300,'read');
-
+*/
 
 
 function Book(title,author,pageNumber,readStatus)
@@ -17,12 +19,17 @@ function Book(title,author,pageNumber,readStatus)
     this.author=author;
     this.pageNumber=pageNumber;
     this.readStatus=readStatus;
-addBookToLibrary(this);
+
+    addBookToLibrary(this);
 }
+
 function addBookToLibrary(book)
 {
 myLibrary.push(book);
+clearMyBookSelf(bookCollection);
+displayMyBooks(myLibrary);
 }
+
 
 function displayMyBooks(myLibrary)
 {
@@ -45,7 +52,18 @@ function displayMyBooks(myLibrary)
     mybook.appendChild(pageNumber);
     
     const readStatus=document.createElement('button');
-    readStatus.textContent='read status';
+    readStatus.textContent=myLibrary[i].readStatus;
+    if(myLibrary[i].readStatus==='read')
+    {
+        readStatus.classList.add('read'); 
+    }
+    else
+    {
+        readStatus.classList.add('notread'); 
+    }
+
+    readStatus.setAttribute('id',`${i}`);
+    readStatus.classList.add('readStatus');
     mybook.appendChild(readStatus);
     
     const removeBook=document.createElement('button');
@@ -58,10 +76,30 @@ function displayMyBooks(myLibrary)
     bookCollection.appendChild(mybook);
 
   }
-  removeBooks='';
-  removeBooks=document.querySelectorAll('.removeBook')
-  removeBooks.forEach(removeBook=>removeBook.addEventListener('click',()=>{
-    console.log(removeBook['id']);
+    readStatus='';
+    readStatus=document.querySelectorAll('.readStatus');
+    readStatus.forEach(read=>read.addEventListener('click',()=>{
+    if(read.textContent==='read') 
+    {
+        read.classList.remove('read');
+        read.classList.add('notread'); 
+        read.textContent='not read';
+       
+    }
+    else
+    {
+        read.classList.remove('notread');
+        read.classList.add('read'); 
+        read.textContent='read';
+      
+    }
+
+
+    }));
+    
+    removeBooks='';
+    removeBooks=document.querySelectorAll('.removeBook')
+    removeBooks.forEach(removeBook=>removeBook.addEventListener('click',()=>{
     myLibrary.splice(removeBook['id'],1);
     clearMyBookSelf(bookCollection);
     displayMyBooks(myLibrary);
@@ -79,9 +117,6 @@ function clearMyBookSelf(mybookSelf)
 
 
 
-displayMyBooks(myLibrary);
-
-
 
 const addNewButton=document.querySelector('.addNewBook');
 
@@ -92,4 +127,30 @@ const submittNewBook=document.querySelector('#submittNewBook');
 addNewButton.addEventListener('click',()=>form.removeAttribute('hidden')
 );
 
-submittNewBook.addEventListener('click',()=>console.log(document.getElementById('.author-name')));
+submittNewBook.addEventListener('click',()=>{new Book(placeholderObject.book,placeholderObject.author, placeholderObject.pages,placeholderObject.readStatus);
+form.setAttribute('hidden','true');}
+);
+
+let Inputs=document.querySelectorAll('input');
+Inputs.forEach(input=>input.addEventListener('blur',()=>sortInputValue(input)));
+
+function sortInputValue(input)
+{
+  switch(input.name)
+  {
+    case 'book_name':
+        placeholderObject.book=input.value;
+    break;
+    case 'author_name':
+        placeholderObject.author=input.value;
+    break;
+    case 'page_number':
+        placeholderObject.pages=input.value;
+    break;
+    case 'status':
+        placeholderObject.readStatus=input.value;
+    break;
+}
+
+}
+
