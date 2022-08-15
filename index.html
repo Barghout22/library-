@@ -11,7 +11,41 @@
     <h1>Welcome to the library!</h1>
 
 <div class="bookShelf"></div>
-<a href="addBookForm.html"><button >new book</button></a>
+<button class="addNewBook" >new book</button>
+
+<div class="newBookForm" hidden>
+    <form action='' method='dialog' id="bookInfo" >
+        <fieldset>
+            <legend>please enter the information of the book </legend>
+            <h1>fileds marked in * are required</h1>
+            <div class="newBookGrid">
+                <div class="bookName">
+                    <label for="book_name">book name*</label>
+                    <input type="text" name="book_name" id="book_name" required>
+                </div>
+                <div class="authorName">
+                    <label for="author_name">author name*</label>
+                    <input type="text" name="author_name" id="author_name" required>
+                </div>
+                <div class="pageNumber">
+                    <label for="page_number">page number*</label>
+                    <input type="tel" name="page_number" id="page_number" required>
+                </div>
+                <div class="readStatus">
+                    <fieldset>
+                        <legend>did you already read this book?*</legend>
+                        <input type="radio" name="status" id="read" value="read">
+                        <label for="read">read</label>
+                        <input type="radio" name="status" id="not_read" value="not_read" checked>
+                        <label for="not_read">not yet read</label>
+                    </fieldset>
+                </div>
+                        </fieldset>
+                        <button id="submittNewBook">add book</button>
+            </div>
+    
+       </form>
+</div>
 
     <script src="lib.js"></script>
 </body>

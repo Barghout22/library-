@@ -22,3 +22,10 @@ button
     height: 3em;
     margin: 10px;
 }
+
+div.newBookGrid
+{
+    display: grid;
+    grid-template-columns: repeat(2,300px);
+    gap: 20px;
+}
