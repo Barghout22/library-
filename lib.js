@@ -13,14 +13,16 @@ const hary=new Book('welcome to the jungle','gnr',300,'read');
 */
 
 
-function Book(title,author,pageNumber,readStatus)
-{
+class Book
+{constructor(title,author,pageNumber,readStatus)
+    {
     this.title=title;
     this.author=author;
     this.pageNumber=pageNumber;
     this.readStatus=readStatus;
 
-    addBookToLibrary(this);
+    }
+    
 }
 
 function addBookToLibrary(book)
@@ -131,8 +133,9 @@ addNewButton.addEventListener('click',()=>{
     document.getElementById('page_number').value='';
 });
 
-submittNewBook.addEventListener('click',()=>{new Book(placeholderObject.book,placeholderObject.author, placeholderObject.pages,placeholderObject.readStatus);
-form.setAttribute('hidden','true');}
+submittNewBook.addEventListener('click',()=>{
+    addBookToLibrary(new Book(placeholderObject.book,placeholderObject.author, placeholderObject.pages,placeholderObject.readStatus));
+    form.setAttribute('hidden','true');}
 );
 
 let Inputs=document.querySelectorAll('input');
