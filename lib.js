@@ -124,8 +124,13 @@ const submittNewBook=document.querySelector('#submittNewBook');
 
 
 
-addNewButton.addEventListener('click',()=>form.removeAttribute('hidden')
-);
+addNewButton.addEventListener('click',()=>{
+    form.removeAttribute('hidden');
+    document.getElementById('book_name').value='';
+    document.getElementById('author_name').value='';
+    document.getElementById('page_number').value='';
+    document.getElementById('').value='not read';
+});
 
 submittNewBook.addEventListener('click',()=>{new Book(placeholderObject.book,placeholderObject.author, placeholderObject.pages,placeholderObject.readStatus);
 form.setAttribute('hidden','true');}
