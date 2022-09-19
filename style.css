@@ -1,56 +1,46 @@
-
-body
-{
-font: bold;
-font-family: monospace;
-
+body {
+  font: bold;
+  font-family: monospace;
 }
 
-.header
-{
-display: flex;
-justify-content: space-between;
-margin: 20px;
-
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
 }
-div.bookShelf
-{
-    text-align: center;
-    display: grid;
-    grid-template-columns: repeat(5,200px);
-    gap: 20px;
-    margin: 30px;
+div.bookShelf {
+  text-align: center;
+  display: grid;
+  grid-template-columns: repeat(5, 15vw);
+  gap: 20px;
+  margin: 30px;
 }
 
-div.book
-{
-    background-color: blanchedalmond;
-    border: 2px solid black;
-    padding: 10px;
-    box-shadow: 2px 2px black;
+div.book {
+  background-color: blanchedalmond;
+  border: 2px solid black;
+  padding: 10px;
+  box-shadow: 2px 2px black;
 }
 
-button
-{
-    width: 10em;
-    height: 3em;
-    margin: 10px;
+button {
+  width: 10em;
+  height: 3em;
+  margin: 10px;
 }
 
-div.newBookGrid
-{
-    display: grid;
-    grid-template-columns: repeat(2,300px);
-    gap: 20px;
+div.newBookGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  gap: 20px;
 }
 
-.read{
-    background-color: green;
-    color: white;
+.read {
+  background-color: green;
+  color: white;
 }
 
-.notread
-{
-background-color: red;
-color: white;
+.notread {
+  background-color: red;
+  color: white;
 }
